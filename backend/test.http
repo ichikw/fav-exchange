@@ -24,3 +24,19 @@ Content-Type: application/json
   "loginId": "testuser",
   "password": "abc"
 }
+### 所持グッズ登録
+POST http://localhost:8080/api/goods
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "goodsName": "SHINee キーホルダー",
+  "description": "ライブ会場限定",
+  "imageUrl": ""
+}
+
+### 所持グッズ一覧
+GET http://localhost:8080/api/goods
+
+### 所持グッズ削除
+DELETE http://localhost:8080/api/goods/1
