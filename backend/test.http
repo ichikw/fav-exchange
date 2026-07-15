@@ -30,7 +30,7 @@ Content-Type: application/json
 
 {
   "userId": 1,
-  "goodsName": "SHINee キーホルダー",
+  "goodsName": "〇〇 キーホルダー",
   "description": "ライブ会場限定",
   "imageUrl": ""
 }
@@ -40,3 +40,19 @@ GET http://localhost:8080/api/goods
 
 ### 所持グッズ削除
 DELETE http://localhost:8080/api/goods/1
+
+### 交換希望登録
+POST http://localhost:8080/api/wanted
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "goodsName": "◯◯ トレーディングカード",
+  "conditions": "目立つ傷や折れがないものを希望"
+}
+
+### 交換希望一覧
+GET http://localhost:8080/api/wanted
+
+### 交換希望削除
+DELETE http://localhost:8080/api/wanted/1
