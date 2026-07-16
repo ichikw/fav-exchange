@@ -28,6 +28,12 @@ public class AuthController {
         this.userRepository = userRepository;
     }
 
+
+    @GetMapping("/version")
+    public String version() {
+        return "fav-exchange-new-20260716";
+    }
+
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     public RegisterResponse register(@RequestBody RegisterRequest request) {
