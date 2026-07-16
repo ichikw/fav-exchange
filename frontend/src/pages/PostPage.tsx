@@ -1,3 +1,5 @@
+import LogoutButton from '../components/LogoutButton'
+import { API_BASE_URL } from '../api/config'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -25,10 +27,10 @@ function PostPage() {
         const loadData = async () => {
             try {
                 const goodsResponse = await fetch(
-                    'http://localhost:8080/api/goods',
+                    `${API_BASE_URL}/api/goods`,
                 )
                 const wantedResponse = await fetch(
-                    'http://localhost:8080/api/wanted',
+                    `${API_BASE_URL}/api/wanted`,
                 )
 
                 if (!goodsResponse.ok || !wantedResponse.ok) {
@@ -93,6 +95,9 @@ ${selectedWanted.conditions ? `条件：${selectedWanted.conditions}` : ''}
 
     return (
         <main>
+            <div className="logout-area">
+                <LogoutButton />
+            </div>
             <h1>募集文作成・SNS投稿</h1>
 
             <nav>

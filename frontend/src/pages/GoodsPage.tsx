@@ -1,3 +1,5 @@
+import LogoutButton from '../components/LogoutButton'
+import { API_BASE_URL } from '../api/config'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -18,7 +20,7 @@ function GoodsPage() {
 
     const loadGoods = async () => {
         try {
-            const response = await fetch('http://localhost:8080/api/goods')
+            const response = await fetch(`${API_BASE_URL}/api/goods`)
 
             if (!response.ok) {
                 setMessage('所持グッズの取得に失敗しました')
@@ -45,7 +47,7 @@ function GoodsPage() {
         }
 
         try {
-            const response = await fetch('http://localhost:8080/api/goods', {
+            const response = await fetch(`${API_BASE_URL}/api/goods`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -78,7 +80,7 @@ function GoodsPage() {
 
         try {
             const response = await fetch(
-                `http://localhost:8080/api/goods/${id}`,
+                `${API_BASE_URL}/api/goods/${id}`,
                 {
                     method: 'DELETE',
                 },
@@ -98,6 +100,9 @@ function GoodsPage() {
 
     return (
         <main>
+            <div className="logout-area">
+                <LogoutButton />
+            </div>
             <h1>所持グッズ一覧</h1>
 
             <nav>

@@ -1,3 +1,5 @@
+import LogoutButton from '../components/LogoutButton'
+import { API_BASE_URL } from '../api/config'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -16,7 +18,7 @@ function WantedPage() {
 
     const loadWantedGoods = async () => {
         try {
-            const response = await fetch('http://localhost:8080/api/wanted')
+            const response = await fetch(`${API_BASE_URL}/api/wanted`)
 
             if (!response.ok) {
                 setMessage('交換希望グッズの取得に失敗しました')
@@ -43,7 +45,7 @@ function WantedPage() {
         }
 
         try {
-            const response = await fetch('http://localhost:8080/api/wanted', {
+            const response = await fetch(`${API_BASE_URL}/api/wanted`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -74,7 +76,7 @@ function WantedPage() {
 
         try {
             const response = await fetch(
-                `http://localhost:8080/api/wanted/${id}`,
+                `${API_BASE_URL}/api/wanted/${id}`,
                 {
                     method: 'DELETE',
                 },
@@ -94,6 +96,9 @@ function WantedPage() {
 
     return (
         <main>
+            <div className="logout-area">
+                <LogoutButton />
+            </div>
             <h1>交換希望一覧</h1>
 
             <nav>
