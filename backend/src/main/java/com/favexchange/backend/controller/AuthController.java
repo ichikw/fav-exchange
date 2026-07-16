@@ -8,10 +8,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(originPatterns = {
-        "http://localhost:5173",
-        "https://*.vercel.app"
-})
+
 public class AuthController {
 
     private final UserRepository userRepository;
