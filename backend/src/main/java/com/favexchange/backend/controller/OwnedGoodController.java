@@ -9,7 +9,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/goods")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(originPatterns = {
+        "http://localhost:5173",
+        "https://*.vercel.app"
+})
 public class OwnedGoodController {
 
     private final OwnedGoodRepository repository;
