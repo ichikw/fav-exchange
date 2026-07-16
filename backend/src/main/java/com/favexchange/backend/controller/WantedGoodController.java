@@ -8,8 +8,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/wanted")
-
+@RequestMapping("/api")
+@CrossOrigin(
+        origins = {
+                "http://localhost:5173",
+                "https://fav-exchange.vercel.app"
+        },
+        methods = {
+                RequestMethod.GET,
+                RequestMethod.POST,
+                RequestMethod.DELETE,
+                RequestMethod.OPTIONS
+        }
+)
 public class WantedGoodController {
 
     private final WantedGoodRepository repository;

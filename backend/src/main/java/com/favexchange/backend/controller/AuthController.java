@@ -8,7 +8,18 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api")
-
+@CrossOrigin(
+        origins = {
+                "http://localhost:5173",
+                "https://fav-exchange.vercel.app"
+        },
+        methods = {
+                RequestMethod.GET,
+                RequestMethod.POST,
+                RequestMethod.DELETE,
+                RequestMethod.OPTIONS
+        }
+)
 public class AuthController {
 
     private final UserRepository userRepository;
